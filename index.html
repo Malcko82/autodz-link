@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="fr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AutoDZ</title>
+<body style="margin:0;background:#071E36;color:#fff;font-family:sans-serif">
+<main style="padding:32px">
+<p id="msg">Ouverture d’AutoDZ…</p>
+<p><a id="go" href="#" style="color:#7eb6ff;font-weight:700">Ouvrir AutoDZ</a></p>
+</main>
+<script>
+const go = document.getElementById("go");
+const msg = document.getElementById("msg");
+fetch("https://api.github.com/repos/Malcko82/autodz-link/contents/url.txt?t=" + Date.now(), { cache: "no-store" })
+  .then((response) => {
+    if (!response.ok) throw new Error(String(response.status));
+    return response.json();
+  })
+  .then((data) => {
+    const url = atob(String(data.content || "").replace(/\s/g, ""));
+    if (!url.startsWith("https://")) throw new Error("bad");
+    go.href = url;
+    location.replace(url);
+  })
+  .catch(() => {
+    msg.textContent = "AutoDZ n’est pas joignable pour le moment. Réessayez dans une minute.";
+  });
+</script>
+</body>
+</html>
