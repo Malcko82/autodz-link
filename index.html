@@ -2,11 +2,18 @@
 <html lang="fr">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AutoDZ</title>
+<meta name="application-name" content="DarBil">
+<meta name="apple-mobile-web-app-title" content="DarBil">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#071E36">
+<title>DarBil</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
 <body style="margin:0;background:#071E36;color:#fff;font-family:sans-serif">
 <main style="padding:32px">
-<p id="msg">Ouverture d’AutoDZ…</p>
-<p><a id="go" href="#" style="color:#7eb6ff;font-weight:700">Ouvrir AutoDZ</a></p>
+<p id="msg">Ouverture de DarBil…</p>
+<p><a id="go" href="#" style="color:#7eb6ff;font-weight:700">Ouvrir DarBil</a></p>
 </main>
 <script>
 const go = document.getElementById("go");
@@ -23,8 +30,9 @@ fetch("https://api.github.com/repos/Malcko82/autodz-link/contents/url.txt?t=" + 
     location.replace(url);
   })
   .catch(() => {
-    msg.textContent = "AutoDZ n’est pas joignable pour le moment. Réessayez dans une minute.";
+    msg.textContent = "DarBil n’est pas joignable pour le moment. Réessayez dans une minute.";
   });
 </script>
 </body>
 </html>
+
